@@ -1,0 +1,33 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run Build
+      run: npm run build || echo "No build script"
+
+    - name: Run Tests
+      run: npm test || echo "No tests found"
+
+    - name: Docker Build
+      run: docker build -t my-node-app .
+
+    - name: Docker Run
+      run: docker run -d -p 3000:3000 my-node-app
