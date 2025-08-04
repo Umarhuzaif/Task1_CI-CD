@@ -41,3 +41,4 @@ It's also important to note that you will need to configure the necessary servic
 Once you have set up the pipeline and configured the necessary service connections, you can trigger the pipeline to deploy the app to the production environment. You can also set up continuous integration and continuous delivery (CI/CD) so that the pipeline automatically runs whenever new code is pushed to the repository.
 
 By using Azure Pipelines, you can automate the process of building, testing, and deploying the app, making it easy to maintain and update the app in the production environment.
+"# test trigger" 
